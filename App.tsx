@@ -118,46 +118,46 @@ const App: React.FC = () => {
     >
       <div className="absolute inset-0 pointer-events-none opacity-[0.04] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,118,0.06))] bg-[length:100%_2px,3px_100%]"></div>
 
-      <header className="w-full bg-slate-950/70 backdrop-blur-3xl border-b border-white/5 px-8 py-5 flex justify-between items-center sticky top-0 z-50">
-        <div className="flex items-center gap-4">
-          <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-2xl border border-white/20 ring-4 ring-indigo-500/10">
-            <span className="text-2xl">🏃</span>
+      <header className="w-full bg-slate-950/70 backdrop-blur-3xl border-b border-white/5 px-4 md:px-8 py-3 md:py-5 flex justify-between items-center sticky top-0 z-50">
+        <div className="flex items-center gap-3 md:gap-4">
+          <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-2xl border border-white/20 ring-4 ring-indigo-500/10">
+            <span className="text-xl md:text-2xl">🏃</span>
           </div>
           <div>
-            <h1 className="text-xl font-black tracking-widest text-white/95 drop-shadow-lg">时间裂缝守护者</h1>
-            <p className="text-[10px] text-indigo-400 font-black tracking-[0.2em] uppercase opacity-80">{SCHOOL_CREDIT}</p>
+            <h1 className="text-lg md:text-xl font-black tracking-widest text-white/95 drop-shadow-lg">时间守护者</h1>
+            <p className="text-[9px] md:text-[10px] text-indigo-400 font-black tracking-[0.2em] uppercase opacity-80 hidden md:block">{SCHOOL_CREDIT}</p>
           </div>
         </div>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 md:gap-6">
           <div className="hidden md:block text-right">
             <p className="text-[10px] text-white/30 font-black uppercase tracking-widest mb-0.5">时空功勋</p>
             <p className="text-base font-black text-indigo-400 tracking-tighter">LEVEL.{playerProgress.level}</p>
           </div>
-          <div className="w-12 h-12 rounded-2xl border border-white/10 bg-slate-900 shadow-2xl p-1 ring-2 ring-white/5">
+          <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl border border-white/10 bg-slate-900 shadow-2xl p-1 ring-2 ring-white/5">
              <img src={`https://api.dicebear.com/7.x/shapes/svg?seed=${playerProgress.xp}`} alt="avatar" className="w-full h-full rounded-xl" />
           </div>
         </div>
       </header>
 
-      <main className="flex-1 w-full max-w-5xl flex flex-col items-center justify-center p-8 z-10">
+      <main className="flex-1 w-full max-w-5xl flex flex-col items-center justify-center p-3 md:p-8 z-10">
         {gameState === GameState.START && (
-          <div className="text-center space-y-12">
-            <div className="space-y-8">
+          <div className="text-center space-y-8 md:space-y-12">
+            <div className="space-y-6 md:space-y-8">
               <div className="inline-flex flex-col items-center gap-4">
-                <div className="px-8 py-2.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-[11px] font-black tracking-[0.4em] uppercase shadow-lg shadow-indigo-500/5">
+                <div className="px-6 py-2 md:px-8 md:py-2.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-[10px] md:text-[11px] font-black tracking-[0.3em] md:tracking-[0.4em] uppercase shadow-lg shadow-indigo-500/5">
                   世界近现代史 · 专项演练
                 </div>
                 <div className="text-center">
                   <span className="text-white/20 text-[10px] font-black tracking-[0.5em] uppercase block mb-2">Developed By</span>
-                  <span className="text-white text-xl font-black tracking-[0.25em] drop-shadow-md">{SCHOOL_CREDIT}</span>
+                  <span className="text-white text-base md:text-xl font-black tracking-[0.25em] drop-shadow-md">{SCHOOL_CREDIT}</span>
                 </div>
               </div>
               
-              <h2 className="text-8xl md:text-9xl font-black italic tracking-tighter text-white drop-shadow-[0_20px_50px_rgba(0,0,0,0.7)] leading-[0.9]">
+              <h2 className="text-6xl md:text-9xl font-black italic tracking-tighter text-white drop-shadow-[0_20px_50px_rgba(0,0,0,0.7)] leading-[0.9]">
                 时空<br/><span className="text-indigo-500">疾走</span>
               </h2>
               
-              <p className="text-slate-400 max-w-md mx-auto text-sm leading-relaxed tracking-widest bg-slate-900/40 p-6 rounded-[2.5rem] border border-white/5 backdrop-blur-md shadow-2xl">
+              <p className="text-slate-400 max-w-md mx-auto text-xs md:text-sm leading-relaxed tracking-widest bg-slate-900/40 p-4 md:p-6 rounded-[2rem] md:rounded-[2.5rem] border border-white/5 backdrop-blur-md shadow-2xl">
                 穿越历史裂缝，守护真实时间线。<br/>
                 奔跑中定位关键坐标，获取时空币奖励。
               </p>
@@ -165,7 +165,7 @@ const App: React.FC = () => {
             
             <button 
               onClick={startNewGame}
-              className="group relative px-24 py-7 bg-indigo-600 text-white font-black text-2xl rounded-full shadow-[0_20px_70px_rgba(79,70,229,0.5)] transition-all hover:scale-110 active:scale-95 overflow-hidden ring-8 ring-indigo-500/20"
+              className="group relative px-16 md:px-24 py-5 md:py-7 bg-indigo-600 text-white font-black text-xl md:text-2xl rounded-full shadow-[0_20px_70px_rgba(79,70,229,0.5)] transition-all hover:scale-110 active:scale-95 overflow-hidden ring-4 md:ring-8 ring-indigo-500/20"
             >
               <span className="relative z-10 tracking-[0.4em] ml-[0.4em]">启动疾走</span>
               <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
@@ -180,7 +180,7 @@ const App: React.FC = () => {
           <div className="w-full flex flex-col items-center gap-0 animate-in fade-in zoom-in-95 duration-1000">
             <GameStats stats={stats} />
             
-            <div className="w-full bg-slate-900/60 backdrop-blur-3xl rounded-[4rem] border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.6)] overflow-hidden flex flex-col transition-all duration-700">
+            <div className="w-full bg-slate-900/60 backdrop-blur-3xl rounded-[2.5rem] md:rounded-[4rem] border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.6)] overflow-hidden flex flex-col transition-all duration-700">
               <RunnerGame 
                 isRunning={gameState === GameState.PLAYING} 
                 isPaused={showQuestion} 
@@ -189,15 +189,15 @@ const App: React.FC = () => {
                 coinsCount={stats.coins}
               />
               
-              <div className="p-10 min-h-[460px] flex items-center justify-center relative bg-gradient-to-b from-transparent to-indigo-950/10">
+              <div className="p-4 md:p-10 min-h-[360px] md:min-h-[460px] flex items-center justify-center relative bg-gradient-to-b from-transparent to-indigo-950/10">
                 {!showQuestion ? (
-                  <div className="text-center space-y-6 py-24 animate-pulse">
-                    <p className="text-white/15 font-black tracking-[1.2em] uppercase text-3xl">穿梭中...</p>
-                    <p className="text-indigo-400/50 text-xs font-black tracking-[0.4em] uppercase">前方有极高浓度的历史波动</p>
+                  <div className="text-center space-y-4 md:space-y-6 py-12 md:py-24 animate-pulse">
+                    <p className="text-white/15 font-black tracking-[0.8em] md:tracking-[1.2em] uppercase text-xl md:text-3xl">穿梭中...</p>
+                    <p className="text-indigo-400/50 text-[10px] md:text-xs font-black tracking-[0.3em] md:tracking-[0.4em] uppercase">前方有极高浓度的历史波动</p>
                   </div>
                 ) : (
                   currentQuestion && (
-                    <div className="w-full flex flex-col items-center gap-10 animate-in slide-in-from-bottom-16 duration-600">
+                    <div className="w-full flex flex-col items-center gap-6 md:gap-10 animate-in slide-in-from-bottom-16 duration-600">
                       <QuestionDisplay 
                         question={currentQuestion} 
                         timeRemaining={timeRemaining}
@@ -213,11 +213,11 @@ const App: React.FC = () => {
                         {/* 仅在答错且有正确年份时，闪现正确答案 */}
                         {feedback === 'wrong' && actualYear !== null && (
                           <div className="absolute -bottom-36 inset-x-0 text-center z-50">
-                            <div className="inline-block px-16 py-8 bg-red-600 text-white font-black rounded-[4rem] shadow-[0_0_80px_rgba(220,38,38,0.8)] border-4 border-red-400 animate-flash-5">
-                              <p className="text-[14px] text-red-100 uppercase mb-3 tracking-[0.5em] font-black opacity-90 underline decoration-red-300 underline-offset-8">
+                            <div className="inline-block px-10 py-6 md:px-16 md:py-8 bg-red-600 text-white font-black rounded-[4rem] shadow-[0_0_80px_rgba(220,38,38,0.8)] border-4 border-red-400 animate-flash-5">
+                              <p className="text-[12px] md:text-[14px] text-red-100 uppercase mb-2 md:mb-3 tracking-[0.4em] md:tracking-[0.5em] font-black opacity-90 underline decoration-red-300 underline-offset-8">
                                 正确时间节点
                               </p>
-                              <p className="text-6xl tracking-tighter drop-shadow-2xl">
+                              <p className="text-4xl md:text-6xl tracking-tighter drop-shadow-2xl">
                                 {actualYear > 0 ? actualYear : `公元前 ${Math.abs(actualYear)}`} 年
                               </p>
                               <div className="flex justify-center gap-2 mt-4 opacity-40">
@@ -228,7 +228,7 @@ const App: React.FC = () => {
                         )}
                         
                         {feedback === 'correct' && (
-                          <div className="absolute -bottom-16 inset-x-0 text-center text-green-400 font-black animate-bounce text-2xl tracking-[0.2em] drop-shadow-[0_0_10px_rgba(74,222,128,0.5)]">
+                          <div className="absolute -bottom-12 md:-bottom-16 inset-x-0 text-center text-green-400 font-black animate-bounce text-lg md:text-2xl tracking-[0.2em] drop-shadow-[0_0_10px_rgba(74,222,128,0.5)]">
                             轨道重合 · 记录成功! ✨
                           </div>
                         )}
@@ -242,27 +242,27 @@ const App: React.FC = () => {
         )}
 
         {gameState === GameState.GAMEOVER && (
-          <div className="text-center space-y-12 animate-in fade-in slide-in-from-top-8 duration-800">
-            <h2 className="text-8xl font-black text-white/95 italic tracking-tighter uppercase drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]">守护任务终结</h2>
+          <div className="text-center space-y-8 md:space-y-12 animate-in fade-in slide-in-from-top-8 duration-800">
+            <h2 className="text-5xl md:text-8xl font-black text-white/95 italic tracking-tighter uppercase drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]">守护任务终结</h2>
 
-            <div className="bg-slate-900/80 backdrop-blur-3xl border border-white/10 rounded-[4rem] p-16 max-w-xl mx-auto space-y-12 shadow-[0_50px_120px_rgba(0,0,0,0.7)] ring-1 ring-white/10">
-              <div className="grid grid-cols-3 gap-6">
-                <div className="space-y-2">
-                  <p className="text-[10px] text-white/30 uppercase font-black tracking-widest">最终评分</p>
-                  <p className="text-4xl font-mono font-black text-white">{stats.score}</p>
+            <div className="bg-slate-900/80 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] md:rounded-[4rem] p-8 md:p-16 max-w-xl mx-auto space-y-8 md:space-y-12 shadow-[0_50px_120px_rgba(0,0,0,0.7)] ring-1 ring-white/10">
+              <div className="grid grid-cols-3 gap-3 md:gap-6">
+                <div className="space-y-1 md:space-y-2">
+                  <p className="text-[9px] md:text-[10px] text-white/30 uppercase font-black tracking-widest">最终评分</p>
+                  <p className="text-2xl md:text-4xl font-mono font-black text-white">{stats.score}</p>
                 </div>
-                <div className="space-y-2">
-                  <p className="text-[10px] text-white/30 uppercase font-black tracking-widest">连击峰值</p>
-                  <p className="text-4xl font-mono font-black text-indigo-400">{stats.maxCombo}</p>
+                <div className="space-y-1 md:space-y-2">
+                  <p className="text-[9px] md:text-[10px] text-white/30 uppercase font-black tracking-widest">连击峰值</p>
+                  <p className="text-2xl md:text-4xl font-mono font-black text-indigo-400">{stats.maxCombo}</p>
                 </div>
-                <div className="space-y-2">
-                  <p className="text-[10px] text-white/30 uppercase font-black tracking-widest">收集币</p>
-                  <p className="text-4xl font-mono font-black text-yellow-400">💰 {stats.coins}</p>
+                <div className="space-y-1 md:space-y-2">
+                  <p className="text-[9px] md:text-[10px] text-white/30 uppercase font-black tracking-widest">收集币</p>
+                  <p className="text-2xl md:text-4xl font-mono font-black text-yellow-400">💰 {stats.coins}</p>
                 </div>
               </div>
               
-              <div className="space-y-5">
-                <div className="flex justify-between text-[12px] font-black uppercase text-white/50 tracking-[0.3em]">
+              <div className="space-y-3 md:space-y-5">
+                <div className="flex justify-between text-[10px] md:text-[12px] font-black uppercase text-white/50 tracking-[0.3em]">
                   <span>时空同步程度</span>
                   <span className="text-indigo-400">{playerProgress.xp % 100}%</span>
                 </div>
@@ -275,22 +275,22 @@ const App: React.FC = () => {
               </div>
 
               {lastNotification && (
-                <div className="p-6 bg-indigo-500/10 border border-indigo-500/20 rounded-[3rem] text-indigo-300 text-base font-black tracking-widest uppercase animate-pulse shadow-inner">
+                <div className="p-4 md:p-6 bg-indigo-500/10 border border-indigo-500/20 rounded-[2rem] md:rounded-[3rem] text-indigo-300 text-xs md:text-base font-black tracking-widest uppercase animate-pulse shadow-inner">
                   {lastNotification}
                 </div>
               )}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-8 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-8 justify-center">
               <button 
                 onClick={startNewGame}
-                className="px-20 py-7 bg-white text-indigo-950 font-black rounded-full transition-all shadow-[0_20px_60px_rgba(255,255,255,0.2)] hover:scale-110 active:scale-95 text-xl tracking-widest"
+                className="px-12 md:px-20 py-5 md:py-7 bg-white text-indigo-950 font-black rounded-full transition-all shadow-[0_20px_60px_rgba(255,255,255,0.2)] hover:scale-110 active:scale-95 text-lg md:text-xl tracking-widest"
               >
                 再次进入裂缝
               </button>
               <button 
                 onClick={() => setGameState(GameState.START)}
-                className="px-20 py-7 bg-white/5 hover:bg-white/10 text-white font-black rounded-full transition-all border border-white/10 backdrop-blur-xl text-xl tracking-widest"
+                className="px-12 md:px-20 py-5 md:py-7 bg-white/5 hover:bg-white/10 text-white font-black rounded-full transition-all border border-white/10 backdrop-blur-xl text-lg md:text-xl tracking-widest"
               >
                 返回指挥部
               </button>
@@ -299,13 +299,13 @@ const App: React.FC = () => {
         )}
       </main>
 
-      <footer className="w-full py-16 text-center z-10">
-        <p className="text-white/10 text-[11px] font-black uppercase tracking-[0.8em] mb-4 opacity-50">
-          CHENGDU NO.7 EAST SCHOOL // HISTORY ARCHIVE // STABLE
+      <footer className="w-full py-8 md:py-16 text-center z-10">
+        <p className="text-white/10 text-[9px] md:text-[11px] font-black uppercase tracking-[0.6em] md:tracking-[0.8em] mb-4 opacity-50">
+          CHENGDU NO.7 EAST SCHOOL // HISTORY ARCHIVE
         </p>
         <div className="flex flex-col items-center gap-2">
-          <span className="text-indigo-400/30 text-[11px] font-black tracking-[0.4em] uppercase">学术指导与出品</span>
-          <span className="text-indigo-400/70 text-base font-black tracking-[0.5em] uppercase drop-shadow-sm">{SCHOOL_CREDIT}</span>
+          <span className="text-indigo-400/30 text-[9px] md:text-[11px] font-black tracking-[0.3em] md:tracking-[0.4em] uppercase">学术指导与出品</span>
+          <span className="text-indigo-400/70 text-sm md:text-base font-black tracking-[0.4em] md:tracking-[0.5em] uppercase drop-shadow-sm">{SCHOOL_CREDIT}</span>
         </div>
       </footer>
 

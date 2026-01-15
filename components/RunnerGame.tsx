@@ -66,7 +66,7 @@ export const RunnerGame: React.FC<RunnerGameProps> = ({ isRunning, isPaused, isH
   }, [isRunning, isPaused, onObstacleReached, characterFrame]);
 
   return (
-    <div className="relative w-full h-56 overflow-hidden bg-slate-900/80 rounded-t-[3rem] border-x border-t border-white/10 shadow-inner">
+    <div className="relative w-full h-40 md:h-56 overflow-hidden bg-slate-900/80 rounded-t-[2rem] md:rounded-t-[3rem] border-x border-t border-white/10 shadow-inner transition-all duration-300">
       
       {/* 远景层：星空 */}
       <div 
@@ -97,7 +97,7 @@ export const RunnerGame: React.FC<RunnerGameProps> = ({ isRunning, isPaused, isH
       )}
 
       {/* 地面：从右往左滚，模拟向右跑 */}
-      <div className="absolute bottom-0 w-full h-14 bg-slate-800/90 border-t-4 border-indigo-500/50">
+      <div className="absolute bottom-0 w-full h-10 md:h-14 bg-slate-800/90 border-t-4 border-indigo-500/50">
         <div 
           className="absolute inset-0 opacity-40"
           style={{
@@ -109,14 +109,14 @@ export const RunnerGame: React.FC<RunnerGameProps> = ({ isRunning, isPaused, isH
 
       {/* 角色：固定在左侧区域，面向右侧 */}
       <div 
-        className={`absolute bottom-12 left-24 transition-all duration-300 z-30`}
+        className={`absolute bottom-8 md:bottom-12 left-12 md:left-24 transition-all duration-300 z-30`}
         style={{ 
           transform: `scale(${isHurt ? 1.5 : 1})`,
         }}
       >
         <div className="relative">
            {/* 核心修正：使用 scaleX(-1) 将默认向左的跑步 Emoji 水平翻转，使其向右跑 */}
-           <span className="text-7xl select-none block drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]" style={{ transform: 'scaleX(-1)' }}>
+           <span className="text-6xl md:text-7xl select-none block drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]" style={{ transform: 'scaleX(-1)' }}>
              {isHurt ? '🤕' : isPaused ? '🏃' : ['🏃', '🏃‍♂️', '🏃', '🏃‍♀️'][characterFrame]}
            </span>
            
@@ -138,7 +138,7 @@ export const RunnerGame: React.FC<RunnerGameProps> = ({ isRunning, isPaused, isH
 
       {/* 时空裂缝：从右侧飞来 */}
       <div 
-        className="absolute bottom-14 right-0 w-28 h-44 flex flex-col items-center justify-center transition-all duration-300"
+        className="absolute bottom-10 md:bottom-14 right-0 w-20 md:w-28 h-32 md:h-44 flex flex-col items-center justify-center transition-all duration-300"
         style={{ 
           transform: `translateX(${(nextObstacleRef.current - distance - 500) * 2.8}px)`,
           opacity: Math.min(1, Math.max(0, 2 - Math.abs(nextObstacleRef.current - distance) / 600))
@@ -146,19 +146,19 @@ export const RunnerGame: React.FC<RunnerGameProps> = ({ isRunning, isPaused, isH
       >
         <div className="w-12 h-full bg-gradient-to-t from-red-600 via-indigo-600 to-transparent blur-3xl animate-pulse rounded-full opacity-60" />
         <div className="absolute inset-0 flex items-center justify-center">
-           <span className="text-6xl animate-bounce-slow drop-shadow-[0_0_25px_rgba(255,255,255,0.7)]">🧿</span>
+           <span className="text-5xl md:text-6xl animate-bounce-slow drop-shadow-[0_0_25px_rgba(255,255,255,0.7)]">🧿</span>
         </div>
       </div>
       
       {/* 顶部 HUD */}
-      <div className="absolute top-6 left-8 flex gap-4">
-        <div className="bg-black/70 backdrop-blur-xl px-5 py-2.5 rounded-2xl border border-white/10 flex items-center gap-3 shadow-2xl ring-1 ring-white/5">
-          <span className="text-[10px] font-black text-indigo-400 tracking-[0.2em] uppercase">时空深度</span>
-          <span className="text-base font-mono font-black text-white">{Math.floor(distance)}<span className="text-[10px] ml-0.5 opacity-50">M</span></span>
+      <div className="absolute top-4 left-4 md:top-6 md:left-8 flex gap-2 md:gap-4">
+        <div className="bg-black/70 backdrop-blur-xl px-3 py-1.5 md:px-5 md:py-2.5 rounded-2xl border border-white/10 flex items-center gap-2 md:gap-3 shadow-2xl ring-1 ring-white/5">
+          <span className="text-[9px] md:text-[10px] font-black text-indigo-400 tracking-[0.2em] uppercase">深度</span>
+          <span className="text-sm md:text-base font-mono font-black text-white">{Math.floor(distance)}<span className="text-[10px] ml-0.5 opacity-50">M</span></span>
         </div>
-        <div className="bg-yellow-600/20 backdrop-blur-xl px-5 py-2.5 rounded-2xl border border-yellow-500/30 flex items-center gap-3 shadow-2xl ring-1 ring-yellow-500/10">
-          <span className="text-[10px] font-black text-yellow-500 tracking-[0.2em] uppercase">已收纳</span>
-          <span className="text-base font-mono font-black text-yellow-400">💰 {coinsCount}</span>
+        <div className="bg-yellow-600/20 backdrop-blur-xl px-3 py-1.5 md:px-5 md:py-2.5 rounded-2xl border border-yellow-500/30 flex items-center gap-2 md:gap-3 shadow-2xl ring-1 ring-yellow-500/10">
+          <span className="text-[9px] md:text-[10px] font-black text-yellow-500 tracking-[0.2em] uppercase">收纳</span>
+          <span className="text-sm md:text-base font-mono font-black text-yellow-400">💰 {coinsCount}</span>
         </div>
       </div>
 
